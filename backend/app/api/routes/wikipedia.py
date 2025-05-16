@@ -1,7 +1,7 @@
 # app/api/routes/wikipedia.py
 
 from fastapi import APIRouter, Query
-from app.services.wikipedia_service import search_articles, get_article_content, summarize_text, analyze_content
+from backend.app.services.wikipedia_service import search_articles, get_article_content, summarize_text, analyze_content
 
 router = APIRouter()
 
