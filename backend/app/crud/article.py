@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from app.models.article import Article
-from app.schemas.article import ArticleCreate
+from backend.app.models.article import Article
+from backend.app.schemas.article import ArticleCreate
 
 async def create_article(db: AsyncSession, article: ArticleCreate):
     db_article = Article(**article.dict())
