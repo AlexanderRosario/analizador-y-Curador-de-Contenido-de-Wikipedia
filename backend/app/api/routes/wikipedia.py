@@ -3,6 +3,7 @@
 from fastapi import APIRouter, Query
 from backend.app.services.wikipedia_service import search_articles, get_article_content, summarize_text, analyze_content
 
+
 router = APIRouter()
 
 @router.get("/wikipedia/search")
@@ -19,3 +20,5 @@ def get_article(pageid: int):
         "analysis": analysis,
         "full_text": content
     }
+
+

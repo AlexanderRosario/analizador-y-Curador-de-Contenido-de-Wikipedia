@@ -1,0 +1,255 @@
+/* styles.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 2rem;
+  color: #1f2937; /* gris oscuro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+header p {
+  font-size: 1rem;
+  color: #6b7280; /* gris medio */
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db; /* gris claro */
+  border-radius: 0.375rem 0 0 0.375rem; /* 6px */
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #2563eb; /* azul */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+button {
+  background-color: #2563eb; /* azul */
+  color: white;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0 0.375rem 0.375rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8; /* azul más oscuro */
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  background-color: white;
+  border-radius: 0.5rem; /* 8px */
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  text-align: center;
+  color: #374151; /* gris oscuro */
+}
+
+main h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+main p {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+main svg {
+  width: 60px;
+  height: 60px;
+  fill: #9ca3af; /* gris claro */
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: auto;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 1rem auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.search-result-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-result-item:hover {
+  background-color: #e3e3e3;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.article-display {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.wikipedia-link {
+  color: #3366cc;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+.wiki-link:hover {
+  text-decoration: underline;
+}
+
+/* Sección de artículos guardados justo debajo de la barra de búsqueda con sticky */
+.saved-articles-section {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+
+  position: sticky;
+  top: 130px; /* Ajusta según la altura de tu header + barra de búsqueda */
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.saved-articles-section h2 {
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+
+.clear-btn {
+  background-color: #ef4444; /* rojo */
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+  background-color: #b91c1c; /* rojo más oscuro */
+}
+
+.saved-articles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.saved-article-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.saved-article-item:last-child {
+  border-bottom: none;
+}
+
+.saved-article-text {
+  cursor: pointer;
+  flex: 1;
+}
+
+.saved-article-text strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #111827;
+}
+
+.saved-article-text p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+  user-select: none;
+}
+
+.remove-btn {
+  background-color: #ef4444; /* rojo */
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #b91c1c; /* rojo más oscuro */
+}
+
+.toggle-btn {
+  background-color: #2563eb; /* azul */
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #1d4ed8; /* azul más oscuro */
+}
