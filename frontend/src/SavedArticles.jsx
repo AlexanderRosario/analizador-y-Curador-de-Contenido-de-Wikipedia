@@ -1,34 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import "./style.css"; // Importamos estilos globales
 
-function SavedArticles({ articles }) {
-  if (!articles.length) return <p>No hay artículos guardados.</p>;
+function SavedArticles({ articles, loading, onSelectArticle, onDeleteArticle }) {
+  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <div>
-      <h2>Artículos guardados</h2>
-      <ul>
-        {articles.map((article, index) => (
-          <li key={index} style={{ marginBottom: "1rem" }}>
-            <a href={article.url_wikipedia} target="_blank" rel="noopener noreferrer">
-              <strong>{article.title_wikipedia}</strong>
-            </a>
-            <p>{article.resumen_process}</p>
-            <ul>
-              <li>Palabras: {article.analisis.numero_palabras}</li>
-              <li>Oraciones: {article.analisis.numero_oraciones}</li>
-              <li>Tiempo de lectura: {article.analisis.tiempo_estimado_lectura}</li>
-              <li>
-                Frecuencia:{" "}
-                {article.analisis.palabras_mas_frecuentes.join(", ")}
-              </li>
+    <section className="saved-articles-container">
+      <h2>
+        Mis artículos guardados ({articles.length})
+      </h2>
+
+      {loading ? (
+        <p>Cargando artículos guardados...</p>
+      ) : articles.length === 0 ? (
+        <p>No tienes artículos guardados aún.</p>
+      ) : (
+        <>
+          <button
+            className="toggle-btn"
+            onClick={() => setIsExpanded(!isExpanded)}
+            aria-expanded={isExpanded}
+            aria-controls="saved-articles-list"
+          >
+            {isExpanded ? "Ocultar artículos guardados" : "Mostrar artículos guardados"}
+          </button>
+
+          {isExpanded && (
+            <ul id="saved-articles-list" className="saved-articles-list">
+              {articles.map((art) => (
+                <li key={art.id_page || art.id} className="saved-article-item">
+                  <button
+                    onClick={() => onSelectArticle(art)}
+                    className="saved-article-button"
+                    aria-label={`Seleccionar artículo ${art.title}`}
+                  >
+                    {art.title}
+                  </button>
+                  <button
+                    onClick={() => onDeleteArticle(art.id_page || art.id)}
+                    className="remove-btn"
+                    aria-label={`Eliminar artículo ${art.title}`}
+                  >
+                    X
+                  </button>
+                </li>
+              ))}
             </ul>
-          </li>
-        ))}
-      </ul>
-    </div>
+          )}
+        </>
+      )}
+    </section>
   );
 }
 
 export default SavedArticles;
+
 
 

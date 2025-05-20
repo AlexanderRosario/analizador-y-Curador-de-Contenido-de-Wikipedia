@@ -1,4 +1,4 @@
-function ArticleDisplay({ article, onSave }) {
+function ArticleDisplay({ article }) {
   return (
     <div className="article-display">
       {/* ...otros contenidos si los hay... */}
@@ -15,12 +15,8 @@ function ArticleDisplay({ article, onSave }) {
           </a>
         </p>
       )}
-
-      <button onClick={() => onSave(article)}>Guardar artículo</button>
     </div>
   );
 }
 
 export default ArticleDisplay;
-
-

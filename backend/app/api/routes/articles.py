@@ -9,7 +9,8 @@ router = APIRouter()
 
 @router.post("/", response_model=ArticleOut)
 async def save_article(article: ArticleCreate, db: AsyncSession = Depends(get_db)):
-    return await create_article(db, article)
+    db_article = await create_article(db, article)
+    return ArticleOut.from_orm(db_article)
 
 @router.get("/", response_model=List[ArticleOut])
 async def list_articles(db: AsyncSession = Depends(get_db)):

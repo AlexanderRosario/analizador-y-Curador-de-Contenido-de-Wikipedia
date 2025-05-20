@@ -5,7 +5,7 @@ body {
   background-color: #f9fafb;
   margin: 0;
   padding: 2rem;
-  color: #1f2937; /* gris oscuro */
+  color: #1f2937;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -24,7 +24,7 @@ header h1 {
 
 header p {
   font-size: 1rem;
-  color: #6b7280; /* gris medio */
+  color: #6b7280;
 }
 
 form {
@@ -40,19 +40,19 @@ input[type="text"] {
   flex: 1;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid #d1d5db; /* gris claro */
-  border-radius: 0.375rem 0 0 0.375rem; /* 6px */
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem 0 0 0.375rem;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-  border-color: #2563eb; /* azul */
+  border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
 }
 
 button {
-  background-color: #2563eb; /* azul */
+  background-color: #2563eb;
   color: white;
   padding: 0 1.5rem;
   font-weight: 600;
@@ -64,18 +64,18 @@ button {
 }
 
 button:hover {
-  background-color: #1d4ed8; /* azul más oscuro */
+  background-color: #1d4ed8;
 }
 
 main {
   max-width: 700px;
   margin: 0 auto 2rem auto;
   background-color: white;
-  border-radius: 0.5rem; /* 8px */
+  border-radius: 0.5rem;
   padding: 2rem;
   box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
   text-align: center;
-  color: #374151; /* gris oscuro */
+  color: #374151;
 }
 
 main h2 {
@@ -94,7 +94,7 @@ main p {
 main svg {
   width: 60px;
   height: 60px;
-  fill: #9ca3af; /* gris claro */
+  fill: #9ca3af;
   margin-bottom: 1.5rem;
 }
 
@@ -136,18 +136,24 @@ footer {
   margin-bottom: 1.5rem;
 }
 
+.article-display button {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+}
+
 .wikipedia-link {
   color: #3366cc;
   text-decoration: underline;
   font-weight: bold;
 }
 
-
 .wiki-link:hover {
   text-decoration: underline;
 }
 
-/* Sección de artículos guardados justo debajo de la barra de búsqueda con sticky */
 .saved-articles-section {
   max-width: 600px;
   margin: 0 auto 2rem auto;
@@ -155,11 +161,10 @@ footer {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1rem 1.5rem;
-
   position: sticky;
-  top: 130px; /* Ajusta según la altura de tu header + barra de búsqueda */
+  top: 130px;
   z-index: 100;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .saved-articles-section h2 {
@@ -170,7 +175,7 @@ footer {
 }
 
 .clear-btn {
-  background-color: #ef4444; /* rojo */
+  background-color: #ef4444;
   border: none;
   color: white;
   padding: 0.4rem 0.8rem;
@@ -182,27 +187,23 @@ footer {
 }
 
 .clear-btn:hover {
-  background-color: #b91c1c; /* rojo más oscuro */
+  background-color: #b91c1c;
 }
 
 .saved-articles-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 200px;
-  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
 }
 
 .saved-article-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.saved-article-item:last-child {
-  border-bottom: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background-color: #fafafa;
 }
 
 .saved-article-text {
@@ -223,8 +224,27 @@ footer {
   user-select: none;
 }
 
+.saved-article-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  color: blue;
+  font-size: 1rem;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.saved-article-button:hover,
+.saved-article-button:focus {
+  color: #00796b;
+  outline: none;
+}
+
 .remove-btn {
-  background-color: #ef4444; /* rojo */
+  background-color: #ef4444;
   border: none;
   color: white;
   padding: 0.3rem 0.6rem;
@@ -236,11 +256,11 @@ footer {
 }
 
 .remove-btn:hover {
-  background-color: #b91c1c; /* rojo más oscuro */
+  background-color: #b91c1c;
 }
 
 .toggle-btn {
-  background-color: #2563eb; /* azul */
+  background-color: #2563eb;
   color: white;
   border: none;
   padding: 0.4rem 0.8rem;
@@ -251,5 +271,38 @@ footer {
 }
 
 .toggle-btn:hover {
-  background-color: #1d4ed8; /* azul más oscuro */
+  background-color: #1d4ed8;
 }
+
+.saved-articles-container {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+@media (max-width: 480px) {
+  .saved-articles-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.toggle-btn {
+  background-color: #2563eb; /* azul */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; /* 6px */
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.toggle-btn:hover,
+.toggle-btn:focus {
+  background-color: #1d4ed8; /* azul más oscuro */
+  outline: none;
+}
+
+
